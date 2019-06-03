@@ -1,0 +1,37 @@
+Genetic Algorithms(GAs) are adaptive heuristic search algorithms that belong to the larger part of evolutionary algorithms. In each generation 
+chromosomes(our solution candidates) undergo mutation and crossover and then selection to produce a better population whose candidates are nearer to our 
+desired solution. Mutation Operator is a unary operator and it needs only one parent to work on. It does so by selecting a few genes from our selected 
+chromosome and apply the desired algorithm.
+
+In this article, I will be talking five Mutation Algorithms for string manipulation –
+1) Bit Flip Mutation
+2) Random Resetting Mutation
+3) Swap Mutation
+4) Scramble Mutation
+5) Inversion Mutation
+
+Bit Flip Mutation is mainly used for bit string manipulation while others can be used for any
+kind of strings. Here our chromosome will be represented as an array and each index will represent one gene. Strings can be represented as an array of 
+characters which in turn is an array of ASCII or numeric values.
+ 
+Bit Flip Mutation —
+
+In bit flip mutation, we select one or more genes (array indices) and flip their values i.e. we change 1s to 0s and vice versa. It is better explained using
+the given diagram.
+
+Random Resetting Mutation —
+
+In random resetting mutation, we select one or more genes (array indices) and replace their values with another random value from their given ranges. 
+Let’s say a[i] (an array index / gene) ranges from [1, 6] then random resetting mutation will select one value from [1, 6] and replace a[i]’s value with it.
+
+Swap Mutation —
+
+In Swap Mutation we select two genes from our chromosome and interchange their values.
+
+Scramble Mutation —
+
+In Scramble Mutation we select a subset of our genes and scramble their value. The selected genes may not be contiguous (see the second diagram).
+
+Inversion Mutation —
+
+In Inversion Mutation we select a subset of our genes and reverse their order. The genes have to be contiguous in this case (see the diagram).

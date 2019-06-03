@@ -1,0 +1,9 @@
+Genetic Algo
+
+https://blog.sicara.com/getting-started-genetic-algorithms-python-tutorial-81ffa1dd72f9
+
+https://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems
+
+https://www.google.com/search?q=getting+started+with+genetic+algorithms&rlz=1C1CHBF_enIN806IN806&oq=gettigngenetic+algorithm&aqs=chrome.1.69i57j0.13288j0j7&sourceid=chrome&ie=UTF-8
+
+https://www.geeksforgeeks.org/genetic-algorithms/

@@ -1,0 +1,78 @@
+Genetic Algorithms(GAs) are adaptive heuristic search algorithms that belong to the larger part of evolutionary algorithms. In each generation 
+chromosomes(our solution candidates) undergo mutation and crossover and selection to produce a better population whose chromosomes are nearer to our 
+desired solution. Mutation Operator is a unary operator and it needs only one parent to work on. It does so by selecting a few genes from our selected 
+chromosome (parent) and then by applying the desired mutation operator on them.
+
+In this article, I will be talking about four Mutation Algorithms for real-valued parameters –
+1) Uniform Mutation
+2) Non-Uniform
+3) Boundary Mutation
+4) Gaussian Mutation
+
+Here ,we are considering a chromosome with n real numbers (which are our genes) and xi represents a gene and i belongs to [1,n].
+
+Uniform Mutation –
+	In uniform mutation we select a random gene from our chromosome, let’s say xi and assign a uniform random value to it.
+	Let xi be within the range [ai,bi] then we assign U(ai,bi) to xi
+	U(ai,bi) denotes a uniform random number from within the range [ai,bi].
+
+	Algorithm –
+	1.	Select a random integer number i from [1,n]
+	2.	Set xi to U(ai,bi).
+
+Boundary Mutation –
+	In boundary mutation we select a random gene from our chromosome , let’s say xi and assign the upper bound or the lower bound of xi to it.
+	Let xi be within the range [ai,bi] then we assign either ai or bi to xi.
+	We also select a variable r= U(0,1) ( r is a number between 0 and 1).
+	If r is greater than or equal to 0.5 , assign bi to xi else assign ai to xi.
+
+	Algorithm –
+	1.	select a random integer number i form [1,n]
+	2.	select a random real value r from (0,1).
+	3.	If(r >= 0.5)
+			Set xi to bi
+		else
+			Set xi to ai
+
+Non-Uniform Mutation –
+	In non-uniform mutation we select a random gene from our chromosome, let’s say xi and assign a non-uniform random value to it.
+	Let xi be within the range [ai,bi] then we assign a non-uniform random value to it.
+
+	We use a function,
+	f(G)=(r2*(1-G/Gmax))b ,
+		where r2 = a uniform random number between (0,1)
+		G = the current generation number
+		Gmax = the maximum number of generations
+		b = a shape parameter
+	Here we select a uniform random number r1 between (0,1).
+	If r greater than or equal to 0.5 we assign (bi-xi) * f(G) to xi else we assign (ai+ xi) * f(G).
+
+	Algorithm –
+	1.	Select a random integer i within [1,n]
+	2.	Select two random real values r1 ,r2 from (0,1).
+	3.	If(r1 >= 0.5)
+			Set xi to (bi-xi) * f(G)
+		else
+			Set xi to (ai+ xi) * f(G)
+
+Gaussian Mutation –
+	Gaussian Mutation makes use of the Gauss error function . It is far more efficient in converging than the previously mentioned algorithms.
+	We select a random gene let’s say xi which belongs to the range [ai,bi]. Let the mutated off spring be x’i. Every variable has a mutation 
+	strength operator (σi). We use σ= σi/(bi-ai) as a fixed non-dimensionalized parameter for all n variables;
+	Thus the offspring x’i is given by —
+		x’i= xi + √2 * σ * (bi-ai)erf-1(u’i)
+	Here erf() denotes the Gaussian error function.
+		erf(y)=2⁄√π ∫y0 e-t2 dt
+
+	For calculation ui’ we first select a random value ui from within the range (0,1) and then use the following formula
+		if(ui>=0.5)
+			u’i=2*uL*(1-2*ui)
+		else
+			u’i=2*uR*(2*ui-1)
+	Again uL and uR are given by the formula
+		uL=0.5(erf( (ai-xi)⁄(√2(bi-ai)σ) )+1)
+		uR=0.5(erf( (bi-xi)⁄(√2(bi-ai)σ) )+1)
+
+
+
+
